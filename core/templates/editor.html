@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/theme/dracula.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='editor.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/python/python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/sql/sql.min.js"></script>
@@ -23,9 +23,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.0/mode/go/go.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
 </head>
-<body>
+<body class="editor-page">
     <div class="container">
         <div class="controls">
+            {% if is_creator %}
             <select id="language">
                 <option value="python">Python</option>
                 <option value="sql">SQL</option>
@@ -47,6 +48,8 @@
             </select>
             <button id="copy-link">Скопировать ссылку</button>
             <button id="new-session">Новая сессия</button>
+            <button id="end-session">Завершить сессию</button>
+            {% endif %}
         </div>
         <textarea id="editor"></textarea>
         <input type="hidden" id="session_id" value="{{ session_id }}">

@@ -1,0 +1,49 @@
+/* Общие стили для страницы редактора */
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+
+body.editor-page {
+    font-family: 'Cascadia Code', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #282a36; /* Тёмный фон */
+    color: #f8f8f2; /* Светлый текст */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.controls {
+    margin-bottom: 10px;
+}
+
+.controls select, .controls button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #44475a;
+    border: none;
+    border-radius: 4px;
+    color: #f8f8f2;
+    cursor: pointer;
+}
+
+.controls select:hover, .controls button:hover {
+    background-color: #6272a4;
+}
+
+#editor {
+    flex: 1;
+    border: 1px solid #6272a4;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 14px;
+    background-color: #282a36;
+    color: #f8f8f2;
+    width: 100%; /* Редактор занимает всю ширину контейнера */
+}
